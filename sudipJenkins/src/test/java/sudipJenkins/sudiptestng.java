@@ -16,6 +16,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.AfterTest;
@@ -70,7 +71,11 @@ public class sudiptestng {
 	  System.setProperty("webdriver.chrome.driver", "C:\\Drivers\\chromedriver.exe");
 		test.assignAuthor("SUDIP ROY");
 		test.assignCategory("SMOKE TEST");
-		driver=new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+			    options.addArguments("--no-sandbox");
+			    driver = new ChromeDriver(options);
+			    driver.manage().window().maximize();
+			
 		
 		driver.get("http://localhost/sudipsite/wp-admin/");
 		
